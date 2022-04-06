@@ -49,45 +49,45 @@
 
                         <h1 class="fw-light">Hello, Lorem Ipsum</h1>
 
-                        <form class="container" action="{{ route('api.calculate') }}">
+                        <form id="calc-form" method="GET" class="container" action="{{ route('api.calculate') }}">
 
                             <div class="row g-2 mb-2">
                                 <div class="col-md form-floating">
-                                    <input type="text" id="amount" class="form-control" placeholder="10000" />
+                                    <input type="text" id="amount" name="amount" class="form-control" placeholder="10000" />
                                     <label class="form-label" for="amount">Amount</label>
                                 </div>
                                 <div class="col-md form-floating">
-                                    <input type="text" id="month" class="form-control" placeholder="1" />
+                                    <input type="text" id="month" name="month" class="form-control" placeholder="1" />
                                     <label class="form-label" for="month">Month</label>
                                 </div>
                                 <div class="col-md form-floating">
-                                    <input type="text" id="year" class="form-control" placeholder="2022" />
+                                    <input type="text" id="year" name="year" class="form-control" placeholder="2022" />
                                     <label class="form-label" for="year">Year</label>
                                 </div>
                             </div>
 
                             <div class="row g-2 mb-2">
                                 <div class="col-md form-floating">
-                                    <input type="text" id="should_work" class="form-control" placeholder="22" />
+                                    <input type="text" id="should_work" name="should_work" class="form-control" placeholder="22" />
                                     <label class="form-label" for="should_work">Days should work</label>
                                 </div>
                                 <div class="col-md form-floating">
-                                    <input type="text" id="actually_work" class="form-control" placeholder="20" />
+                                    <input type="text" id="actually_work" name="actually_work" class="form-control" placeholder="20" />
                                     <label class="form-label" for="actually_work">Actually days work</label>
                                 </div>
                             </div>
 
                             <div class="row g-2 mb-2">
                                 <div class="col-md form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="mzp" checked>
+                                    <input class="form-check-input" type="checkbox" name="mzp" value="true" id="mzp">
                                     <label class="form-check-label float-start" for="mzp">has "МЗП"</label>
                                 </div>
                                 <div class="col-md form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="pensioner" checked>
+                                    <input class="form-check-input" type="checkbox" value="true" name="pensioner" id="pensioner">
                                     <label class="form-check-label float-start" for="pensioner">is pensioner</label>
                                 </div>
                                 <div class="col-md">
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" name="disability" aria-label="Default select example">
                                         <option disabled>Disability</option>
                                         <option value="0">Disability - no</option>
                                         <option value="1">Disability - 1 group</option>
@@ -97,15 +97,13 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-primary my-2">calculate</button>
+                            <button type="button" id="calculate-button" class="btn btn-primary my-2">calculate</button>
                             <button type="button" class="btn btn-primary my-2">calculate & save</button>
                         </form>
 
 
-
-                        <div class="form-floating visually-hidden">
-                            <textarea class="form-control" id="textAreaExample" placeholder="" readonly></textarea>
-                            <label class="form-label" for="textAreaExample">Result</label>
+                        <div class=" visually-hidden">
+                            <textarea class="form-control" id="textAreaResult" rows="10" readonly></textarea>
                         </div>
 
 
