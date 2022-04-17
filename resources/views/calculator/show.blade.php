@@ -98,7 +98,7 @@
                             </div>
 
                             <button type="button" id="calculate-button" class="btn btn-primary my-2">calculate</button>
-                            <button type="button" class="btn btn-primary my-2">calculate & save</button>
+                            <button type="button" id="save-button" class="btn btn-primary my-2">calculate & save</button>
                         </form>
 
 

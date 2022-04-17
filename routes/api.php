@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/calc', [CalculatorController::class, 'calculate'])->name('api.calculate');
+Route::post('/calc', [CalculatorController::class, 'save'])->name('api.calculate.save');

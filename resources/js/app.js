@@ -13,16 +13,27 @@ function calc_form_data()
     );
 }
 
+function on_receive(response)
+{
+    let area = $('#textAreaResult');
+
+    area.parent().removeClass('visually-hidden');
+    area.val(JSON.stringify(response.responseJSON, null, 4));
+}
+
 
 $('#calculate-button').on('click', function(button) {
     $.get({
         url: '/api/calc',
         data: calc_form_data(),
-        complete: function(response) {
-            let area = $('#textAreaResult');
+        complete: on_receive,
+    })
+});
 
-            area.parent().removeClass('visually-hidden');
-            area.val(JSON.stringify(response.responseJSON, null, 4));
-        }
+$('#save-button').on('click', function(button) {
+    $.post({
+        url: '/api/calc',
+        data: calc_form_data(),
+        complete: on_receive,
     })
 });
