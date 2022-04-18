@@ -45,8 +45,6 @@ class Salary extends Model
         return $this;
     }
 
-
-
     public function calculate()
     {
         $this->work_amount = $this->amount * $this->actually_work / $this->should_work;
@@ -112,7 +110,6 @@ class Salary extends Model
         return $this->work_amount * 0.02;
     }
 
-
     protected function medicineFee() : float
     {
         return $this->work_amount * 0.02;
@@ -128,7 +125,6 @@ class Salary extends Model
         if ($this->work_amount >= static::MRP * 25) {
             return 0;
         }
-
         return ($this->pensionFee() + $this->taxFee() + $this->medicineFee()) * 0.9;
     }
 
@@ -137,9 +133,5 @@ class Salary extends Model
         $amount = $this->pensionFee() + $this->medicine_fee - $this->taxFee() - $this->correctionFee() * 0.1;
         return $amount < 0 ? 0 : $amount;
     }
-
-
-
-
 
 }

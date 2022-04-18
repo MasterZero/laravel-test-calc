@@ -17,17 +17,14 @@ class CalculatorController extends Controller
         return view('calculator.show');
     }
 
-
     public function calculate(CalculatorRequest $request)
     {
-
         $salary = new Salary;
         $salary->fill($request->all());
         $salary->calculate();
 
         return response()->json($salary->toArray());
     }
-
 
     public function save(CalculatorRequest $request)
     {
